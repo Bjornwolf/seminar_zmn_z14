@@ -1,0 +1,209 @@
+
+\documentclass{beamer}
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usetheme{Montpellier}
+\beamersetuncovermixins{\opaqueness<1>{25}}{\opaqueness<2->{15}}
+
+\usecolortheme{dove}
+\begin{document}
+\title{Zastosowania i perspektywy interfejsu mózg-komputer}
+\author{Filip Chudy}
+\date{\today} 
+
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+% potrzebne grafiki: EEG, dane EEG, wykres różnych częstotliwości fal
+% potrzebne grafiki: regresja
+% do zwymiarowania jeszcze
+
+% tu bedzie wahadlo magnetyczne
+\section{Sterowanie myślami}
+
+\subsection{Inspiracje}
+\begin{frame} \frametitle{Gwiezdne Wojny}
+\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{sw.jpg}
+\end{frame}
+
+\begin{frame} \frametitle{Transcendencja}
+\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{trans.jpg}
+\end{frame}
+
+\subsection{Realne możliwości}
+\begin{frame} \frametitle{Elektroencefalografia (EEG)}
+\begin{columns}
+\begin{column}{5cm}
+\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{eeg.jpg}
+\end{column}
+\begin{column}{5cm}
+Naturalnym pomysłem na nieinwazyjny odczyt sygnałów mózgowych jest EEG.
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame} \frametitle{Elektroencefalografia (EEG)}
+\begin{columns}
+\begin{column}{5cm}
+\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{eeg_wyniki.png}
+\end{column}
+\begin{column}{5cm}
+Dane są sygnałem zbieranym przez elektrody rozmieszczone na głowie.
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame} \frametitle{Emotiv}
+\begin{columns}
+\begin{column}{5cm}
+\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{emotiv.jpg}
+\end{column}
+\begin{column}{5cm}	
+Wykorzystane zostało (zhakowane) urządzenie Emotiv.
+\end{column}
+\end{columns}
+\end{frame}
+
+\section{Co zrobić z sygnałami?}
+\subsection{Osiągnięcia medycyny}
+\begin{frame} \frametitle{Analiza Hjortha}
+\begin{columns}
+\begin{column}{5cm}
+\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{hjorth.jpg}
+\end{column}
+\begin{column}{5cm}
+Wyliczanie z sygnału trzech wskaźników: Activity, Mobility, Complexity.
+Skutecznie wykrywa anomalie, ale słabo się spisuje w klasyfikacji odczytów z osoby zdrowej.
+\end{column}
+\end{columns} 
+\end{frame}
+
+\begin{frame} \frametitle{Podział fal mózgowych}
+\begin{columns}
+\begin{column}{5cm}
+\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{bw.jpg}
+\end{column}
+\begin{column}{5cm}
+\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{bw_freqs.png}
+\end{column}
+\end{columns} 
+\end{frame}
+
+\subsection{Przetwarzanie sygnałów}
+\begin{frame} \frametitle{Filtry}
+\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{filter3.png}
+\end{frame}
+
+\begin{frame} \frametitle{FFT}
+\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{fourier.jpg}
+\end{frame}
+
+\section{Jak klasyfikować dane}
+\subsection{Klasyczne metody}
+\begin{frame} \frametitle{Regresja}
+Prosty model, ale wrażliwość na pojedyncze dane z dużym odchyleniem utrudnia jego użycie.
+\end{frame}
+
+\begin{frame} \frametitle{Sieci neuronowe}
+\begin{columns}
+\begin{column}{5cm}
+ \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{Image676.png}
+\end{column}
+
+ \begin{column}{5cm}
+\begin{itemize}
+ \item model nieliniowy, więc silniejszy od regresji
+ \item trzeba ustalić strukturę sieci \pause
+ \item duży wektor parametrów -- trudniejsza optymalizacja \pause
+\end{itemize}  
+ \end{column}
+
+\end{columns}
+
+
+\end{frame}
+
+\begin{frame} \frametitle{Sieci neuronowe}
+\begin{columns}
+\begin{column}{5cm}
+\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{gorki.png}
+\end{column}
+\begin{column}{5cm}
+Nie mamy gwarancji, że parametry zostaną zoptymalizowane do ekstremum globalnego.
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame} \frametitle{Support Vector Machines}
+\begin{columns}
+\begin{column}{5cm}
+\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{image_3.jpg}
+\end{column}
+\begin{column}{5cm}
+Programowanie kwadratowe pozwala osiągnąć minimum globalne.
+Zarówno w wariancie bezbłędnym...
+\end{column} 
+\end{columns}
+\end{frame}
+
+\begin{frame} \frametitle{Support Vector Machines}
+\begin{columns}
+\begin{column}{5cm}
+\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{vgv4.png}
+\end{column}
+\begin{column}{5cm}
+Programowanie kwadratowe pozwala osiągnąć minimum globalne.
+...jak i pozwalającym na błędy.
+\end{column} 
+\end{columns}
+\end{frame}
+
+\subsection{Wybrana metoda}
+
+\begin{frame} \frametitle{Support Vector Machines}
+Bardziej elastyczne od regresji, wygodniejsze od sieci neuronowych.
+\end{frame}
+
+\begin{frame} \frametitle{Support Vector Machines}
+Parametr $C$ został dobrany przy pomocy algorytmu ewolucyjnego...
+
+\pause ... czyli kilkunastu godzin obliczeń na 16 rdzeniach.
+\end{frame}
+
+\begin{frame} \frametitle{Jakość działania}
+$3$ grupy
+
+$8$ sekund danych treningowych dla każdej z grupy
+
+Skuteczność: ok. $90\%$
+\end{frame}
+
+
+\begin{frame} \frametitle{Jakość działania}
+Pomyłki między L a R występują bardzo rzadko.
+
+System jest sceptyczny -- nie produkuje zbyt wielu fałszywych alarmów. \pause
+\end{frame}
+
+\section{Perspektywy i ograniczenia}
+\begin{frame} \frametitle{Perspektywy}
+System sprawuje się dobrze przy zastosowaniach nie wymagających szybkiej reakcji i klasyfikacji.
+\end{frame}
+
+\begin{frame} \frametitle{Ograniczenia -- urządzenie}
+Elektrody muszą być regularnie nawilżane.
+
+Fryzura.
+
+Po $45$ minutach boli głowa.
+\end{frame}
+
+\begin{frame} \frametitle{Ograniczenia -- człowiek}
+\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{distraction.jpg}
+\end{frame}
+
+\end{document}
