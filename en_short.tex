@@ -1,0 +1,118 @@
+
+\documentclass{beamer}
+%\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usetheme{Montpellier}
+\beamersetuncovermixins{\opaqueness<1>{25}}{\opaqueness<2->{15}}
+
+\usecolortheme{dove}
+\begin{document}
+\title{Brain-Computer Interface}
+\author{Filip Chudy}
+\date{\today} 
+
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\section{Controlling things with thoughts}
+\subsection{Inspiration}
+\begin{frame} \frametitle{Star Wars}
+\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{sw.jpg}
+\end{frame}
+
+\subsection{Reality}
+\begin{frame} \frametitle{Electroencephalography (EEG)}
+\begin{columns}
+\begin{column}{5cm}
+\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{eeg.jpg}
+\end{column}
+\begin{column}{5cm}
+The simplest way to read brain signals is EEG.
+\end{column}
+\end{columns}
+\end{frame}
+
+\section{Brain wave classification}
+\begin{frame}
+\begin{columns}
+\begin{column}{5cm}
+\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{bw.jpg}
+\end{column}
+\begin{column}{5cm}
+\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{bw_freqs.png}
+\end{column}
+\end{columns} 
+\end{frame}
+
+\subsection{FFT}
+\begin{frame}
+\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{fourier.jpg}
+\end{frame}
+
+\section{Classification methods}
+\begin{frame} \frametitle{Neural networks}
+\begin{columns}
+\begin{column}{5cm}
+ \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{Image676.png}
+\end{column}
+ \begin{column}{5cm}
+\begin{itemize}
+ \item nonlinear model
+ \pause \item the good network structure is hard to guess
+ \pause \item it is hard to optimize the error function 
+\end{itemize}  
+ \end{column}
+
+\end{columns}
+
+\end{frame}
+
+\begin{frame} \frametitle{Neural networks}
+\begin{columns}
+\begin{column}{5cm}
+\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{gorki.png}
+\end{column}
+\begin{column}{5cm}
+It cannot be guaranteed that an optimization method yields an optimal solution.
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame} \frametitle{Support Vector Machines}
+\begin{columns}
+\begin{column}{5cm}
+\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{image_3.jpg}
+\end{column}
+\begin{column}{5cm}
+Optimization always yields an optimal solution.
+
+In both versions: rigid...
+\end{column} 
+\end{columns}
+\end{frame}
+
+\begin{frame} \frametitle{Support Vector Machines}
+\begin{columns}
+\begin{column}{5cm}
+\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{vgv4.png}
+\end{column}
+\begin{column}{5cm}
+Optimization always yields an optimal solution.
+
+...and soft.
+\end{column} 
+\end{columns}
+\end{frame}
+
+\section{Results}
+\begin{frame}
+The correct classification probability is very close to 100\%.
+
+The downside is the latency.
+\end{frame}
+
+\end{document}
